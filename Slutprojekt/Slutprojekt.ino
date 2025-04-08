@@ -46,6 +46,28 @@ void loop() {
   thumb();
   index();
   middle();
+
+
+  if (Serial.available() > 0) {
+    int command = Serial.parseInt();
+
+    if (command == 0) {
+      indexServo.write(0);
+      middleServo.write(0);
+    }
+    else if (command == 1) {
+      indexServo.write(90);
+      middleServo.write(0);      
+    }
+    else if (command == 2) {
+      indexServo.write(0);
+      middleServo.write(90);
+    }
+    else if (command == 12) {
+      indexServo.write(90);      
+      middleServo.write(90);      
+    }
+  }
 }
 
 
