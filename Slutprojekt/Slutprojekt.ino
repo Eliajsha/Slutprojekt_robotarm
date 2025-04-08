@@ -51,20 +51,23 @@ void loop() {
   if (Serial.available() > 0) {
     int command = Serial.parseInt();
 
-    if (command == 0) {
+    if (command == 00) {
+      thumbServo.write(0);
       indexServo.write(0);
-      middleServo.write(0);
     }
-    else if (command == 1) {
-      indexServo.write(90);
+    else if (command == 0) {
+      thumbServo.write(90);
+      indexServo.write(0);
       middleServo.write(0);      
     }
-    else if (command == 2) {
-      indexServo.write(0);
-      middleServo.write(90);
+    else if (command == 1) {
+      thumbServo.write(0);
+      indexServo.write(90);
+      middleServo.write(0);
     }
-    else if (command == 12) {
-      indexServo.write(90);      
+    else if (command == 2) {
+      thumbServo.write(0);
+      indexServo.write(0);      
       middleServo.write(90);      
     }
   }
